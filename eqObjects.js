@@ -13,8 +13,8 @@ const eqObjects = function (object1, object2) {
 
   if (allKeys1.length !== allKeys2.length) return false;
 
-  for (let key in allKeys1) {
-    if (allKeys1[key] !== allKeys2[key]) {
+  for (const key of allKeys1) {
+    if (object1[key] !== object2[key]) {
       return false;
     }
   }
