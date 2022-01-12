@@ -16,19 +16,19 @@ const assertArraysEqual = function (array1, array2) {
 };
 
 const flatten = function (array) {
-  const newArray = [];
+  const flattenedArray = [];
 
   for (let item of array) {
     if (Array.isArray(item)) {
       for (let nestedItem of item) {
-        newArray.push(nestedItem);
+        flattenedArray.push(nestedItem);
       }
     } else {
-      newArray.push(item);
+      flattenedArray.push(item);
     }
   }
 
-  return newArray;
+  return flattenedArray;
 };
 
 // => should all PASS
