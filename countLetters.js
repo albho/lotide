@@ -1,11 +1,10 @@
-// Unsure about necessity of assertEqual
-// const assertEqual = function (actual, expected) {
-//   if (actual === expected) {
-//     console.log(`😁👍 Assertion Passed: ${actual} === ${expected}`);
-//   } else {
-//     console.log(`😓👎 Assertion Failed: ${actual} !== ${expected}`);
-//   }
-// };
+const assertEqual = function (actual, expected) {
+  if (actual === expected) {
+    console.log(`😁👍 Assertion Passed: ${actual} === ${expected}`);
+  } else {
+    console.log(`😓👎 Assertion Failed: ${actual} !== ${expected}`);
+  }
+};
 
 const countLetters = function (sentence) {
   const finalCount = {};
@@ -23,4 +22,8 @@ const countLetters = function (sentence) {
   return finalCount;
 };
 
-console.log(countLetters("lighthouse in the house"));
+assertEqual(countLetters("lighthouse in the house").l, 1);
+assertEqual(countLetters("lighthouse in the house").i, 2);
+assertEqual(countLetters("lighthouse in the house").g, 1);
+assertEqual(countLetters("lighthouse in the house").h, 4);
+assertEqual(countLetters("lighthouse in the house").t, 2);
