@@ -21,14 +21,21 @@ const eqObjects = function (object1, object2) {
   const allKeys1 = Object.keys(object1);
   const allKeys2 = Object.keys(object2);
 
+  // immediately return false if the two objects have a different number of keys
   if (allKeys1.length !== allKeys2.length) return false;
 
+  // for every key of the first object
   for (const key of allKeys1) {
-    // if two arrays are being compared, compare them using callback
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      return eqArrays(object1[key], object2[key]);
+    let keyValue1 = object1[key];
+    let keyValue2 = object2[key];
+    // if two arrays are being compared
+    if (Array.isArray(keyValue1) && Array.isArray(keyValue2)) {
+      // compare them using a helper callback function
+      return eqArrays(keyValue1, keyValue2);
       // otherwise, just compare the primitive value
-    } else if (object1[key] !== object2[key]) return false;
+    } else if (keyValue1 !== keyValue2) {
+      return false;
+    }
   }
   return true;
 };
