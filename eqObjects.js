@@ -14,11 +14,18 @@ const eqObjects = function (object1, object2) {
   if (allKeys1.length !== allKeys2.length) return false;
 
   for (const key of allKeys1) {
-    if (object1[key] !== object2[key]) {
-      return false;
-    }
+    // if two arrays are being compared, iterate through and compare each value
+    if (
+      Array.isArray(object1[key]) &&
+      Array.isArray(object2[key]) &&
+      object1[key].length === object2[key].length
+    ) {
+      for (let i = 0; i < object1[key].length; i++) {
+        if (object1[key][i] !== object2[key][i]) return false;
+      }
+      // otherwise, just compare the primitive value
+    } else if (object1[key] !== object2[key]) return false;
   }
-
   return true;
 };
 
