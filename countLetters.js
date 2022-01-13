@@ -9,11 +9,7 @@ const countLetters = function (sentence) {
 
   for (let letter of sentence) {
     if (letter !== " ") {
-      if (letter in finalCount) {
-        finalCount[letter]++;
-      } else {
-        finalCount[letter] = 1;
-      }
+      letter in finalCount ? finalCount[letter]++ : (finalCount[letter] = 1);
     }
   }
 
