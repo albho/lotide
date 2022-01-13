@@ -6,6 +6,16 @@ const assertEqual = function (actual, expected) {
   }
 };
 
+const eqArrays = function (array1, array2) {
+  if (array1.length !== array2.length) return false;
+
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) return false;
+  }
+
+  return true;
+};
+
 // Returns true if both objects have identical keys with identical values.
 const eqObjects = function (object1, object2) {
   const allKeys1 = Object.keys(object1);
@@ -14,15 +24,9 @@ const eqObjects = function (object1, object2) {
   if (allKeys1.length !== allKeys2.length) return false;
 
   for (const key of allKeys1) {
-    // if two arrays are being compared, iterate through and compare each value
-    if (
-      Array.isArray(object1[key]) &&
-      Array.isArray(object2[key]) &&
-      object1[key].length === object2[key].length
-    ) {
-      for (let i = 0; i < object1[key].length; i++) {
-        if (object1[key][i] !== object2[key][i]) return false;
-      }
+    // if two arrays are being compared, compare them using callback
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      return eqArrays(object1[key], object2[key]);
       // otherwise, just compare the primitive value
     } else if (object1[key] !== object2[key]) return false;
   }
