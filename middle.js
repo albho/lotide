@@ -20,6 +20,7 @@ const middle = function (array) {
     return [];
   }
 
+  
   if (arrayLength % 2 === 0) {
     const middleIndex1 = arrayLength / 2 - 1;
     const middleIndex2 = middleIndex1 + 1;
