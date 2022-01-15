@@ -16,10 +16,10 @@ const assertArraysEqual = function (array1, array2) {
 
 const middle = function (array) {
   const arrayLength = array.length;
+
   if (arrayLength <= 2) {
     return [];
   }
-
   
   if (arrayLength % 2 === 0) {
     const middleIndex1 = arrayLength / 2 - 1;
