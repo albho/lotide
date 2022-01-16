@@ -9,10 +9,9 @@ const eqArrays = function (array1, array2) {
 };
 
 const assertArraysEqual = function (array1, array2) {
-  if (eqArrays(array1, array2)) {
-    return console.log(`😁👍 Assertion Passed: ${array1} === ${array2}`);
-  }
-  return console.log(`😓👎 Assertion Failed: ${array1} !== ${array2}`);
+  eqArrays(array1, array2)
+    ? console.log(`😁👍 Assertion Passed: [${array1}] === [${array2}]`)
+    : console.log(`😓👎 Assertion Failed: [${array1}] !== [${array2}]`);
 };
 
 const flatten = function (array) {
@@ -20,9 +19,8 @@ const flatten = function (array) {
 
   for (let item of array) {
     if (Array.isArray(item)) {
-      for (let nestedItem of item) {
-        flattenedArray.push(nestedItem);
-      }
+      // spread elements of array returned by flatten() and push 1 or multiple values
+      flattenedArray.push(...flatten(item));
     } else {
       flattenedArray.push(item);
     }
@@ -34,5 +32,7 @@ const flatten = function (array) {
 // => should all PASS
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
 assertArraysEqual(flatten([1, 2, 3, 4, 5, 6]), [1, 2, 3, 4, 5, 6]);
-assertArraysEqual(flatten([1, 2, [3, 4], "5", [6]]), [1, 2, 3, 4, "5", 6]);
+assertArraysEqual(flatten([1, [2, [3, 4]], "5", [6]]), [1, 2, 3, 4, "5", 6]);
+assertArraysEqual(flatten([[1, 2, [[3, 4]]], "5", [6]]), [1, 2, 3, 4, "5", 6]);
+assertArraysEqual(flatten([[1, [2, [3, 4]]], "5", [6]]), [1, 2, 3, 4, "5", 6]);
 assertArraysEqual(flatten([1, 2, ["3", 4], "5", [6]]), [1, 2, "3", 4, "5", 6]);
