@@ -17,13 +17,16 @@ const assertArraysEqual = function (array1, array2) {
 const letterPositions = function (sentence) {
   const results = {};
 
-  for (let i in sentence) {
-    if (sentence[i] === " ") continue;
-    results[sentence[i]]
-      ? results[sentence[i]].push(+i)
-      : (results[sentence[i]] = [+i]);
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] !== " ") {
+      results[sentence[i]]
+        ? results[sentence[i]].push(i)
+        : (results[sentence[i]] = [i]);
+    }
   }
+
   return results;
 };
 
 assertArraysEqual(letterPositions("hello").e, [1]);
+assertArraysEqual(letterPositions("hello world!").l, [2, 3, 9]);
