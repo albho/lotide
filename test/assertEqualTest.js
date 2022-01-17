@@ -1,7 +1,9 @@
 const assertEqual = require("../assertEqual");
 
-// TEST CODE
-assertEqual("Bootcamp", "Bootcamp"); // pass
-assertEqual(1, 1); // pass
-assertEqual("Lighthouse Labs", "Bootcamp"); // fail
-assertEqual(1, 2); // fail
+// => should all PASS
+assertEqual("Bootcamp", "Bootcamp");
+assertEqual(1, 1);
+
+// => should all FAIL
+assertEqual("Lighthouse Labs", "Bootcamp");
+assertEqual(1, 2);
