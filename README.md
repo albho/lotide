@@ -25,10 +25,6 @@ This project was created and published by me as part of my learnings at Lighthou
 ## Documentation
 
 The following functions are currently implemented:
-
-* `assertArraysEqual(arr1, arr2)`: returns a boolean comparing two arrays
-* `assertEqual(val1, val2)`: returns a boolean comparing two values
-* `assertObjectsEqual(obj1, obj2)`: returns a boolean comparing two objects
 * `countLetters(str)`: returns an object of all letters of a string and its count
 * `countOnly(str, obj)`: returns an object of only the letters of a string found in the second argument and its count
 * `eqArrays(arr1, arr2)`: returns true if arrays match
@@ -43,3 +39,8 @@ The following functions are currently implemented:
 * `tail(arr)`: returns the tail of an array
 * `takeUntil(arr, callback)`: returns from an array all elements up until a stopping condition
 * `without(arr1, arr2)`: returns a new array of all elements not included in arr2
+
+Some additional assertion functions:
+* `assertArraysEqual(arr1, arr2)`: returns a boolean comparing two arrays
+* `assertEqual(val1, val2)`: returns a boolean comparing two values
+* `assertObjectsEqual(obj1, obj2)`: returns a boolean comparing two objects

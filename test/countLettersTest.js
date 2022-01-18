@@ -1,9 +1,22 @@
-const assertEqual = require("../assertEqual");
+const assert = require("chai").assert;
 const countLetters = require("../countLetters");
 
-// => should all PASS
-assertEqual(countLetters("lighthouse in the house").l, 1);
-assertEqual(countLetters("lighthouse in the house").i, 2);
-assertEqual(countLetters("lighthouse in the house").g, 1);
-assertEqual(countLetters("lighthouse in the house").h, 4);
-assertEqual(countLetters("lighthouse in the house").t, 2);
+describe("#countLetters", () => {
+  it("returns 1 for [1, 2, 3]", () => {
+    const actual = countLetters("lighthouse in the house").l;
+    const expected = 1;
+    assert.strictEqual(actual, expected);
+  });
+
+  it("returns 1 for [1, 2, 3]", () => {
+    const actual = countLetters("lighthouse in the house").i;
+    const expected = 2;
+    assert.strictEqual(actual, expected);
+  });
+
+  it("returns '5' for ['5']", () => {
+    const actual = countLetters("lighthouse in the house").h;
+    const expected = 4;
+    assert.strictEqual(actual, expected);
+  });
+});

@@ -1,23 +1,28 @@
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const takeUntil = require("../takeUntil");
 
-// => should all PASS
-const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-const results1 = takeUntil(data1, x => x < 0);
-assertArraysEqual(results1, [1, 2, 5, 7, 2]);
+describe("#takeUntil", () => {
+  it("returns [1, 2, 5, 7, 2] for [1, 2, 5, 7, 2, -1, 2, 4, 5], x => x < 0", () => {
+    const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
+    const actual = takeUntil(data1, x => x < 0);
+    const expected = [1, 2, 5, 7, 2];
+    assert.deepEqual(actual, expected);
+  });
 
-console.log("---");
-
-const data2 = [
-  "I've",
-  "been",
-  "to",
-  "Hollywood",
-  ",",
-  "I've",
-  "been",
-  "to",
-  "Redwood",
-];
-const results2 = takeUntil(data2, x => x === ",");
-assertArraysEqual(results2, ["I've", "been", "to", "Hollywood"]);
+  it("returns ['I've', 'been', 'to', 'Hollywood'] for ['I've', 'been', 'to', 'Hollywood', 'I've', 'been', 'to', 'Redwood'], x => x === ','", () => {
+    const data2 = [
+      "I've",
+      "been",
+      "to",
+      "Hollywood",
+      ",",
+      "I've",
+      "been",
+      "to",
+      "Redwood",
+    ];
+    const actual = takeUntil(data2, x => x === ",");
+    const expected = ["I've", "been", "to", "Hollywood"];
+    assert.deepEqual(actual, expected);
+  });
+});

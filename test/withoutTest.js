@@ -1,12 +1,22 @@
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const without = require("../without");
 
-// => should all PASS
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
-assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
-assertArraysEqual(without([1, 2, 3], [3, 2, 1]), []);
+describe("#without", () => {
+  it("returns [2, 3] for [1, 2, 3], [1]", () => {
+    const actual = without([1, 2, 3], [1]);
+    const expected = [2, 3];
+    assert.deepEqual(actual, expected);
+  });
 
-const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+  it("returns ['1', '2'] for ['1', '2', '3'], [1, 2, '3']", () => {
+    const actual = without(["1", "2", "3"], [1, 2, "3"]);
+    const expected = ["1", "2"];
+    assert.deepEqual(actual, expected);
+  });
+
+  it("returns [] for [1, 2, 3], [3, 2, 1]", () => {
+    const actual = without([1, 2, 3], [3, 2, 1]);
+    const expected = [];
+    assert.deepEqual(actual, expected);
+  });
+});

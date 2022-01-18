@@ -1,8 +1,8 @@
 {
   "name": "@albertho/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A mini clone of the lodash library.",
-  "main": "assertArraysEqual.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/albho/lotide.git"
   },
   "author": {
-    "name" : "Albert Ho ",
+    "name" : "Albert Ho",
     "email" : "albertcyi.ho@gmail.com",
     "url" : "https://github.com/albho"
   },
