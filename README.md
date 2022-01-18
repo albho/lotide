@@ -25,8 +25,8 @@ This project was created and published by me as part of my learnings at Lighthou
 ## Documentation
 
 The following functions are currently implemented:
-* `countLetters(str)`: returns an object of all letters of a string and the number of times it appears in the string
-* `countOnly(str, obj)`: returns an object of only the letters of a string found in the second argument and the number of times it appears in the string
+* `countLetters(str)`: returns a new object of all letters of a string and the number of times it appears in the string
+* `countOnly(str, obj)`: returns a new object of only the letters of a string found in the second argument and the number of times it appears in the string
 * `eqArrays(arr1, arr2)`: returns true if 2 arrays have the same values; else, returns false
 * `eqObjects(obj1, obj2)`: returns true if 2 objects have the same values; else, returns false
 * `findKey(obj, callback)`: returns the first key found that passes a callback function (passed in as the second argument)
